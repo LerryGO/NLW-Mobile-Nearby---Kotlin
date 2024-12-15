@@ -1,6 +1,7 @@
 package com.rocketseat.nlw.nearby.data.model.mock
 
 import com.rocketseat.nlw.nearby.data.model.Market
+import com.rocketseat.nlw.nearby.data.model.Rule
 
 val mockMarkets = listOf(
     Market(
@@ -9,7 +10,10 @@ val mockMarkets = listOf(
         name = "Sabor Grill",
         description = "Churrascaria com cortes nobres e buffet variado. Experiencia completa para os amantes de carne.",
         coupons = 10,
-        rules = emptyList(),
+        rules = listOf(
+            Rule(id = "1", description = "Válido até o dia 25/12", marketId = "0125576ea-4441-4b8a-89e5-d5f32104c7c4" ),
+            Rule(id = "2", description = "Disponível apenas para consumo local", marketId = "0125576ea-4441-4b8a-89e5-d5f32104c7c4" )
+        ),
         latitude = -23.55974230991911,
         longitude = -46.6581485249887,
         address = "Av. Paulista - Bela Vista",
