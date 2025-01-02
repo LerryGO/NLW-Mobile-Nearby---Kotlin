@@ -1,4 +1,4 @@
-package com.rocketseat.nlw.nearby.ui.screen
+package com.rocketseat.nlw.nearby.ui.screen.market_details
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -28,7 +28,6 @@ import com.rocketseat.nlw.nearby.data.model.mock.mockMarkets
 import com.rocketseat.nlw.nearby.ui.component.button.NearbyButton
 import com.rocketseat.nlw.nearby.ui.component.market_details.NearbyMarketDetailsCoupons
 import com.rocketseat.nlw.nearby.ui.component.market_details.NearbyMarketDetailsInfo
-import com.rocketseat.nlw.nearby.ui.component.market_details.NearbyMarketDetailsRules
 import com.rocketseat.nlw.nearby.ui.theme.Typography
 import com.rocketseat.nlw.nearby.R
 

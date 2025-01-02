@@ -1,4 +1,4 @@
-package com.rocketseat.nlw.nearby.ui.screen
+package com.rocketseat.nlw.nearby.ui.screen.market_details
 
 sealed class MarketDetailsUiEvent {
     data class OnFetchRules(val marketId: String) : MarketDetailsUiEvent()

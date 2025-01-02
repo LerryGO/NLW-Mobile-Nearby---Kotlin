@@ -1,4 +1,4 @@
-package com.rocketseat.nlw.nearby.ui.screen
+package com.rocketseat.nlw.nearby.ui.screen.market_details
 
 import com.rocketseat.nlw.nearby.data.model.Rule
 

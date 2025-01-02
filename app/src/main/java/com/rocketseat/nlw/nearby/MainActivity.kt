@@ -13,14 +13,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.rocketseat.nlw.nearby.data.model.Market
-import com.rocketseat.nlw.nearby.ui.screen.HomeScreen
-import com.rocketseat.nlw.nearby.ui.screen.HomeViewModel
-import com.rocketseat.nlw.nearby.ui.screen.MarketDetailsScreen
-import com.rocketseat.nlw.nearby.ui.screen.SplashScreen
-import com.rocketseat.nlw.nearby.ui.screen.WelcomeScreen
-import com.rocketseat.nlw.nearby.ui.screen.route.Home
-import com.rocketseat.nlw.nearby.ui.screen.route.Splash
-import com.rocketseat.nlw.nearby.ui.screen.route.Welcome
+import com.rocketseat.nlw.nearby.ui.screen.home.HomeScreen
+import com.rocketseat.nlw.nearby.ui.screen.home.HomeViewModel
+import com.rocketseat.nlw.nearby.ui.screen.market_details.MarketDetailsScreen
+import com.rocketseat.nlw.nearby.ui.screen.splash.SplashScreen
+import com.rocketseat.nlw.nearby.ui.screen.welcome.WelcomeScreen
+import com.rocketseat.nlw.nearby.ui.route.Home
+import com.rocketseat.nlw.nearby.ui.route.Splash
+import com.rocketseat.nlw.nearby.ui.route.Welcome
 import com.rocketseat.nlw.nearby.ui.theme.NearbyTheme
 import androidx.compose.runtime.getValue
 
