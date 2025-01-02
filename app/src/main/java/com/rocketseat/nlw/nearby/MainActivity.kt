@@ -23,6 +23,12 @@ import com.rocketseat.nlw.nearby.ui.route.Splash
 import com.rocketseat.nlw.nearby.ui.route.Welcome
 import com.rocketseat.nlw.nearby.ui.theme.NearbyTheme
 import androidx.compose.runtime.getValue
+import com.rocketseat.nlw.nearby.data.model.mock.mockMarkets
+import com.rocketseat.nlw.nearby.ui.route.QRCodeScanner
+import com.rocketseat.nlw.nearby.ui.screen.market_details.MarketDetailsUiEvent
+import com.rocketseat.nlw.nearby.ui.screen.market_details.MarketDetailsUiState
+import com.rocketseat.nlw.nearby.ui.screen.market_details.MarketDetailsViewModel
+import com.rocketseat.nlw.nearby.ui.screen.qrcode_scanner.QRCodeScannerScreen
 
 
 class MainActivity : ComponentActivity() {
@@ -35,6 +41,9 @@ class MainActivity : ComponentActivity() {
 
                 val homeViewModel by viewModels<HomeViewModel>()
                 val homeUiState by homeViewModel.uiState.collectAsStateWithLifecycle()
+
+                val marketDetailsViewModel by viewModels<MarketDetailsViewModel>()
+                val marketDetailsUiState by marketDetailsViewModel.uiState.collectAsStateWithLifecycle()
 
                 NavHost(
                     navController = navController,
@@ -54,17 +63,37 @@ class MainActivity : ComponentActivity() {
                         })
                     }
                     composable<Home> {
-                        HomeScreen(onNavigateToMarketDetails = { selectedMarket ->
-                            navController.navigate(selectedMarket)
-                        },
+                        HomeScreen(
+                            onNavigateToMarketDetails = { selectedMarket ->
+                                navController.navigate(selectedMarket)
+                            },
                             uiState = homeUiState,
-                            onEvent = homeViewModel::onEvent )
+                            onEvent = homeViewModel::onEvent
+                        )
                     }
                     composable<Market> {
                         val selectedMarket = it.toRoute<Market>()
                         MarketDetailsScreen(
                             market = selectedMarket,
+                            uiState = marketDetailsUiState,
+                            onEvent = marketDetailsViewModel::onEvent,
+                            onNavigateToQRCodeScanner = {
+                                navController.navigate(QRCodeScanner)
+                            },
                             onNavigateBack = { navController.popBackStack() })
+                    }
+                    composable<QRCodeScanner> {
+                        QRCodeScannerScreen(
+                            onCompletedScan = { qrCodeContent ->
+                                if (qrCodeContent.isNotEmpty())
+                                    marketDetailsViewModel.onEvent(
+                                        MarketDetailsUiEvent.OnFetchCoupon(
+                                            qrCodeContent = qrCodeContent
+                                        )
+                                    )
+                                navController.popBackStack()
+                            }
+                        )
                     }
 
                 }
